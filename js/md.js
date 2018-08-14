@@ -12,7 +12,7 @@ var mdToHTML = function(titlename, id) {
         LOG && console.log(markdown);
         editormd.markdownToHTML(id,{
             markdown: markdown, //+ "\r\n" + $("#append-test").text(),
-            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            htmlDecode      : "link,style,script,iframe",  // you can filter tags decode
             // toc             : false,
             tocm: true, // Using [TOCM]
             // //tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
