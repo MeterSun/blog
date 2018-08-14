@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/editormd.preview.css" />
+    <style>
+        #content{
+            width: 90%;
+            margin: 0px auto;
+        }
+        .blogitem{
+            border-bottom: 1px solid rgb(185, 185, 185);
+        }
+        .title{
+            font-size: x-large;
+            font-weight: bolder;
+        }
+        .details{
+            margin: 5px 0;
+        }
+        .tags{
+            display: inline-block;
+            list-style: none;
+            padding-left: 20px;
+            margin: 0px;
+        }
+        .tags>li{
+            display: inline;           
+            border-radius: 5px;
+            padding: 1px 5px;
+            margin: 5px;
+            font-size: small;
+            background-color: #dfdfdf;
+            box-shadow: inset 0px 0 10px 2px #dfdfdf;
+        }
+        .date{
+            font-size: small;
+            display: inline-block;
+        }
+    </style>
+    <title>My Blog</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="./lib/marked.min.js"></script>
+    <script src="./lib/prettify.min.js"></script>
+    <script src="./lib/raphael.min.js"></script>
+    <script src="./lib/underscore.min.js"></script>
+    <script src="./lib/sequence-diagram.min.js"></script>
+    <script src="./lib/flowchart.min.js"></script>
+    <script src="./lib/jquery.flowchart.min.js"></script>
+    <script src="./js/editormd.js"></script>
+    <script src="./js/md.js"></script>
+</head>
+
+<body>
+    <div id="content">
+        <h1>My Blog</h1>
+        <hr>
+        <div v-for="(item, index) in content" :key="index" class="blogitem">
+            <div class="title"><a :href="'./blog.html?p='+item.filename"> {{ item.title }}  </a></div>
+            <div class="details">
+                <ul class="tags">tags : <li v-for="tag in item.tags">{{ tag }}</li></ul>
+                <time class="date">{{ item.date }}</time>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:'#content',
+        data:{
+            content:[]
+        },
+        created:function() {
+            !function (obj) {
+                $.get('./package/content.json',function (data) {
+                    obj.content = data;
+                    LOG && console.log(data);
+                });
+            }(this)
+        },
+    });
+</script>
+</html>
