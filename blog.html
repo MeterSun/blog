@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="css/editormd.preview.css" />
     <style>
         .markdown-body {
-            width: 90%;
+            width: 691px;
             margin: 0px auto;
+        }
+        @media screen and (max-width: 768px) {
+            .markdown-body {
+                width: 90%;
+            }
         }
     </style>
     <title>Blog</title>
-    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery"></script> -->
+    <script src="./js/jquery-3.2.1.min.js"></script>
     <script src="./lib/marked.min.js"></script>
     <script src="./lib/prettify.min.js"></script>
     <script src="./lib/raphael.min.js"></script>

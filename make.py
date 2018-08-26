@@ -21,7 +21,6 @@ def createContent(a):
 def main():
     content = []
     for i in os.listdir(postdir):
-        # print(i)
         p = parseMarkdownFile(os.path.join(postdir,i))
         if p:
             p['filename'] = i
