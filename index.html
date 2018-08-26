@@ -31,22 +31,27 @@
             font-weight: bolder;
         }
         .details{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
             margin: 5px 0;
+        }
+        .taglist{
+            /* display: inline; */
+            list-style: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 0px;
         }
         .tags{
             display: inline-block;
-            list-style: none;
-            padding-left: 20px;
-            margin: 0px;
-        }
-        .tags>li{
-            display: inline;           
             border-radius: 5px;
             padding: 1px 5px;
-            margin: 5px;
+            margin: 2px 5px;
             font-size: small;
             background-color: #dfdfdf;
             box-shadow: inset 0px 0 10px 2px #dfdfdf;
+            cursor: pointer;
         }
         .date{
             font-size: small;
@@ -71,12 +76,16 @@
 
 <body>
     <div id="content">
-        <h1>My Blog</h1>
+        <h1>{{ title }}</h1>
+        <div class="taglist">
+            <div class="tags">全部标签</div>
+            <div class="tags" v-for="(item, index) in tags" :key="index" v-on:click="findtag(item)">{{ item }}</div>
+        </div>
         <hr>
         <div v-for="(item, index) in content" :key="index" class="blogitem">
             <div class="title"><a :href="'./blog.html?p='+item.filename"> {{ item.title }}  </a></div>
             <div class="details">
-                <ul class="tags"><li v-for="tag in item.tags">{{ tag }}</li></ul>
+                <ul class="taglist"><li class="tags" v-for="tag in item.tags" v-on:click="findtag(tag)">{{ tag }}</li></ul>
                 <time class="date">{{ item.date }}</time>
             </div>
         </div>
@@ -86,13 +95,24 @@
     var vm = new Vue({
         el:'#content',
         data:{
-            content:[]
+            title:'',
+            tags:[],
+            content:[],
+        },
+        methods:{
+            findtag:function(tag){
+                location.search='?tag='+tag;
+            }
         },
         created:function() {
+            var tag = getQueryString('tag');
+            this.title = tag ||　'My Blog';
+            tag = tag || 'all';
             !function (obj) {
-                $.get('./package/content.json',function (data) {
-                    obj.content = data;
-                    LOG && console.log(data);
+                $.getJSON('./package/content.json',function (data) {
+                    obj.content = tag=='all' ? data[tag]:joinArrByIndex(data[tag],data['all']);
+                    LOG && console.log(obj.content);
+                    for (const key in data) obj.tags.push(key);
                 });
             }(this);
         },

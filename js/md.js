@@ -33,5 +33,14 @@ var mdToHTML = function(titlename, id) {
 var getQueryString = function(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
-    return unescape(r[2]) || null;
+    return r ? unescape(r[2]) : r;
+}
+
+var joinArrByIndex = function (indexarr,arr) {
+    var a = [];
+    for (let index = 0; index < indexarr.length; index++) {
+        const element = arr[indexarr[index]];
+        a.push(element);
+    }
+    return a;
 }
