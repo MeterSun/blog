@@ -1,0 +1,14 @@
+---
+title : 关于各种 js 包的 CDN
+date : 2018-8-17
+tags : 
+ - javascript
+ - cdn
+---
+# 关于各种 js 包的 CDN
+
+[TOC]
+
+## 常见CDN
+
+https://cdn.jsdelivr.net/npm/jquery
