@@ -63,14 +63,6 @@
     <!-- <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script> -->
     <script src="./js/jquery-3.2.1.min.js"></script>
     <script src="./js/vue.min.js"></script>
-    <script src="./lib/marked.min.js"></script>
-    <script src="./lib/prettify.min.js"></script>
-    <script src="./lib/raphael.min.js"></script>
-    <script src="./lib/underscore.min.js"></script>
-    <script src="./lib/sequence-diagram.min.js"></script>
-    <script src="./lib/flowchart.min.js"></script>
-    <script src="./lib/jquery.flowchart.min.js"></script>
-    <script src="./js/editormd.js"></script>
     <script src="./js/md.js"></script>
 </head>
 
@@ -78,7 +70,7 @@
     <div id="content">
         <h1>{{ title }}</h1>
         <div class="taglist">
-            <div class="tags">全部标签</div>
+            <div class="tags" onclick="javascript:location.href='.'">全部标签</div>
             <div class="tags" v-for="(item, index) in tags" :key="index" v-on:click="findtag(item)">{{ item }}</div>
         </div>
         <hr>
