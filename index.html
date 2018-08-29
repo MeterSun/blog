@@ -71,10 +71,10 @@
         <h1>{{ title }}</h1>
         <div class="taglist">
             <div class="tags" onclick="javascript:location.href='.'">全部标签</div>
-            <div class="tags" v-for="(item, index) in tags" :key="index" v-on:click="findtag(item)">{{ item }}</div>
+            <div class="tags" v-for="(item, index) in tags" v-on:click="findtag(item.tag)">{{ item.tag + ' (' + item.len + ')' }}</div>
         </div>
         <hr>
-        <div v-for="(item, index) in content" :key="index" class="blogitem">
+        <div class="blogitem" v-for="(item, index) in content">
             <div class="title"><a :href="'./blog.html?p='+item.filename"> {{ item.title }}  </a></div>
             <div class="details">
                 <ul class="taglist"><li class="tags" v-for="tag in item.tags" v-on:click="findtag(tag)">{{ tag }}</li></ul>
@@ -98,13 +98,13 @@
         },
         created:function() {
             var tag = getQueryString('tag');
-            this.title = tag ||　'My Blog';
+            this.title = tag || 'My Blog';
             tag = tag || 'all';
             !function (obj) {
                 $.getJSON('./package/content.json',function (data) {
                     obj.content = tag=='all' ? data[tag]:joinArrByIndex(data[tag],data['all']);
                     LOG && console.log(obj.content);
-                    for (const key in data) obj.tags.push(key);
+                    for (const key in data) obj.tags.push({tag:key,len:data[key].length});
                 });
             }(this);
         },
