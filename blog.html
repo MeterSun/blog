@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/editormd.preview.css" />
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .markdown-body {
             width: 691px;
@@ -32,7 +33,16 @@
 </head>
 
 <body>
-    <div id="content"></div>
+    <header><a href=".">MeterSun's Blog</a></header>
+    <article id="content"></article>
+    <footer>
+        <p>
+            <a href="https://github.com/MeterSun/blog">
+                <img src="./img/github_black - f.png" alt="" height="44px">
+            </a>
+        </p>
+        <a href='mailto:metersun@outlook.com'><address>metersun@outlook.com</address></a>
+    </footer>
     <script>mdToHTML(getQueryString('p'), "content");</script>
 </body>
 

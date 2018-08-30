@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/editormd.preview.css" />
+    <link rel="stylesheet" href="css/style.css">
     <style>
         #content{
             width: 691px;
@@ -19,11 +20,12 @@
         .blogitem{
             border-bottom: 1px solid rgb(185, 185, 185);
         }
-        a:link,a:visited{
-            color: rgb(0, 0, 200);
+        #content a:link, #content a:visited{
+            color: rgb(0, 0, 0);
+            /* color: rgb(0, 0, 200); */
             text-decoration:none;  /*超链接无下划线*/
         }
-        a:hover{
+        #content a:hover{
             text-decoration:underline;  /*鼠标放上去有下划线*/
         }
         .title{
@@ -45,9 +47,10 @@
         }
         .tags{
             display: inline-block;
-            border-radius: 5px;
-            padding: 1px 5px;
-            margin: 2px 5px;
+            border-radius: 9px;
+            padding: 1px 1em;
+            margin: 3px 4px;
+            color: rgb(5, 9, 255);
             font-size: small;
             background-color: #dfdfdf;
             box-shadow: inset 0px 0 10px 2px #dfdfdf;
@@ -67,6 +70,8 @@
 </head>
 
 <body>
+    <header><a href=".">MeterSun's Blog</a></header>
+
     <div id="content">
         <h1>{{ title }}</h1>
         <div class="taglist">
@@ -82,6 +87,16 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>
+            <a href="https://github.com/MeterSun/blog" title="fork my github">
+                <img src="./img/github_black - f.png" alt="" height="44px">
+            </a>
+        </p>
+        <a href='mailto:metersun@outlook.com' title="mail to me"><address>metersun@outlook.com</address></a>
+    </footer>
+
 </body>
 <script>
     var vm = new Vue({
