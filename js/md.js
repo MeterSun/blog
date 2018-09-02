@@ -1,4 +1,6 @@
 const LOG = !location.host.match('github.io');
+const CONTENT_JSON_PATH = './package/content.json';
+const BLOGNUMS_EVERY_PAGE = 10;
 
 // const postdir = LOG ? '.post':'https://github.com/MeterSun/myblog/raw/master/.post';
 const postdir = 'post';
@@ -34,6 +36,17 @@ var getQueryString = function(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
     return r ? unescape(r[2]) : r;
+}
+
+var setQueryString = function (key, value) {
+    if (getQueryString(key)) {
+        var reg = new RegExp( key + "=([^&]*)(&|$)", "i");
+        location.search = location.search.replace(reg, key+'='+value);
+    } else if(location.search=='') {
+        location.search = '?' + key + '=' + value;
+    } else {
+        location.search += '&' + key + '=' + value;
+    }
 }
 
 var joinArrByIndex = function (indexarr,arr) {

@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/editormd.preview.css" />
     <link rel="stylesheet" href="css/style.css">
     <style>
         #content{
@@ -60,6 +59,22 @@
             font-size: small;
             display: inline-block;
         }
+        .previous-next-links{
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        .previous-link , .next-link{
+            width: 40%;
+            border-bottom: 1px solid #dfdfdf;
+            text-align: center;
+            font-style: italic;
+        }
+        .previous-link:hover , .next-link:hover{
+            cursor: pointer;
+            font-weight: bold;
+            background-color: rgb(246, 255, 255);
+        }
     </style>
     <title>My Blog</title>
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery"></script> -->
@@ -85,9 +100,14 @@
                 <ul class="taglist"><li class="tags" v-for="tag in item.tags" v-on:click="findtag(tag)">{{ tag }}</li></ul>
                 <time class="date">{{ item.date }}</time>
             </div>
+        </div>        
+        <div class="previous-next-links">
+            <div class="previous-link" v-if="page.previous" v-on:click="prepage">< 上一页</div>
+            <div v-else ></div>
+            <div class="next-link" v-if="page.next" v-on:click="nextpage">下一页 ></div>
         </div>
+        
     </div>
-
     <footer>
         <p>
             <a href="https://github.com/MeterSun/blog" title="fork my github">
@@ -105,21 +125,50 @@
             title:'',
             tags:[],
             content:[],
+            page:{
+                current: 1,
+                previous: null,
+                next: null,
+                most: 1,
+            },
         },
         methods:{
             findtag:function(tag){
                 location.search='?tag='+tag;
+            },
+            prepage:function(){
+                setQueryString('page',this.page.previous);
+            },
+            nextpage:function(){
+                setQueryString('page',this.page.next)
             }
         },
         created:function() {
             var tag = getQueryString('tag');
+            var page = getQueryString('page');
+            this.page.current = page * 1 || this.page.current;
             this.title = tag || 'My Blog';
             tag = tag || 'all';
             !function (obj) {
-                $.getJSON('./package/content.json',function (data) {
-                    obj.content = tag=='all' ? data[tag]:joinArrByIndex(data[tag],data['all']);
+                $.getJSON(CONTENT_JSON_PATH,function (data) {
+                    obj.content = tag=='all' ? data[tag] : joinArrByIndex(data[tag],data['all']);
+                    obj.page.most = Math.ceil( obj.content.length / BLOGNUMS_EVERY_PAGE);
+                    if((obj.page.current > 0 && obj.page.current <= obj.page.most)){
+                        obj.page.previous = ((obj.page.current - 1) >= 1) ? obj.page.current - 1 : null;
+                        obj.page.next = ((obj.page.current + 1) <= obj.page.most) ? obj.page.current + 1 : null;
+                    }else{
+                        setQueryString('page',1);
+                    }
+                    obj.content = obj.content.slice((obj.page.current - 1) * BLOGNUMS_EVERY_PAGE, obj.page.current * BLOGNUMS_EVERY_PAGE);
                     LOG && console.log(obj.content);
                     for (const key in data) obj.tags.push({tag:key,len:data[key].length});
+                    obj.tags.sort(function (a,b) {
+                        if(b.len !== a.len){
+                            return b.len - a.len
+                        }else{
+                            return a.tag > b.tag
+                        }
+                    });
                 });
             }(this);
         },
