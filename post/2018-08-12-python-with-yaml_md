@@ -35,6 +35,10 @@ children:
 
 >  https://pyyaml.org
 
+或者
+
+> `pip install pyyaml`
+
 ## 使用
 
 ```
