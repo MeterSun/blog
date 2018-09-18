@@ -61,13 +61,13 @@ tags :
 
 #### 更新软件源
 
-    > 设置 > 软件和更新 > 下载自 > 其他站点 > 选择最佳服务器
+> 设置 > 软件和更新 > 下载自 > 其他站点 > 选择最佳服务器
 
 #### 安装谷歌拼音
 
-    > ```
-    > sudo apt-get install fcitx-googlepinyin
-    > ```
+> ```sudo apt-get install fcitx-googlepinyin
+> sudo apt-get install fcitx-googlepinyin
+> ```
 
 
 
