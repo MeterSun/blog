@@ -34,6 +34,7 @@ MyBlog
 
 1. 编写博客，在 md 文档的正文前编写文档信息，以下为例：
 
+```
     ---
     title: 'Hello World'
     date: '2018-8-8'
@@ -41,6 +42,7 @@ MyBlog
     - hello
     - world
     ---
+```
 
 1. 编写完成，执行脚本 `make.py`
 
