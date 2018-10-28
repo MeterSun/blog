@@ -30,8 +30,9 @@ MyBlog
 
 ## 使用说明
 
-1.新建博客，在 post 文件夹下，新建 md 文档，例：'2018-08-08-hello-world.md'
-1.编写博客，在 md 文档的正文前编写文档信息，以下为例：
+1. 新建博客，在 post 文件夹下，新建 md 文档，例：'2018-08-08-hello-world.md'
+
+1. 编写博客，在 md 文档的正文前编写文档信息，以下为例：
 
     ---
     title: 'Hello World'
@@ -41,8 +42,9 @@ MyBlog
     - world
     ---
 
-1.编写完成，执行脚本 `make.py`
-1.push 到 Github 上
+1. 编写完成，执行脚本 `make.py`
+
+1. push 到 Github 上
 
 ## 更新
 #### 2018-9-2
