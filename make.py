@@ -30,7 +30,7 @@ def main():
         mdFileInfo = parseMarkdownFile(os.path.join(POST_DIR,filename))  # 解析 md 文档
         if not mdFileInfo: continue
         # 重命名    
-        newfilename = filename.replace(' ','-').replace('.','_')
+        newfilename = filename#.replace(' ','-').replace('.','_')
         os.rename(os.path.join(POST_DIR,filename),os.path.join(POST_DIR,newfilename))
         mdFileInfo.update({'filename':newfilename})
         Content['all'].append(mdFileInfo)  # 添加文档信息
