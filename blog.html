@@ -31,7 +31,7 @@
     <script src="./lib/jquery.flowchart.min.js"></script>
     <script src="./js/editormd.js"></script>
     <script src="./js/md.js"></script>
-    <script>getQueryString('p') || (location.href = '.')</script>
+    <!-- <script>getQueryString('p') || (location.href = '.')</script> -->
 </head>
 
 <body>
@@ -45,7 +45,7 @@
         </p>
         <a href='mailto:metersun@outlook.com'><address>metersun@outlook.com</address></a>
     </footer>
-    <script>mdToHTML(getQueryString('p'), "content");</script>
+    <script>mdToHTML(location.hash.slice(1), "content");</script>
 </body>
 
 </html>
