@@ -96,7 +96,7 @@
         </div>
         <hr>
         <div class="blogitem" v-for="(item, index) in content">
-            <div class="title"><a :href="'./blog.html#'+item.filename"> {{ item.title }}  </a></div>
+            <div class="title"><a :href="'./blog.html?p='+item.filename"> {{ item.title }}  </a></div>
             <div class="details">
                 <ul class="taglist"><li class="tags" v-for="tag in item.tags" v-on:click="findtag(tag)">{{ tag }}</li></ul>
                 <time class="date">{{ item.date }}</time>
