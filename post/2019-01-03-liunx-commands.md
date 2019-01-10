@@ -27,7 +27,3 @@ tags :
     ln 源文件 目标文件
     # 软链接
     ln -s 源文件 目标文件
-
-###	在ubuntu中搜索文件或文件夹的方法
-	
-    https://blog.csdn.net/dcrmg/article/details/78000961
