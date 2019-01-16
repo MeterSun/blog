@@ -2,16 +2,12 @@ const LOG = !location.host.match('github.io');
 const CONTENT_JSON_PATH = './package/content.json';
 const BLOGNUMS_EVERY_PAGE = 10;
 
-// const postdir = LOG ? '.post':'https://github.com/MeterSun/myblog/raw/master/.post';
-const postdir = 'post';
+const postdir = './package';
 
-var mdToHTML = function(titlename, id) {
+var mdToHTML = function (titlename, id) {
     // if(!titlename.match('.md$'))  titlename = titlename + '.md';
     
     $.get(postdir + '/' + titlename, function(markdown) {
-        LOG && console.log(markdown);
-        markdown = markdown.replace(/^---[\s\S]+?---/,"");
-        LOG && console.log(markdown);
         editormd.markdownToHTML(id,{
             markdown: markdown, //+ "\r\n" + $("#append-test").text(),
             // htmlDecode      : "link,style,script,iframe",  // you can filter tags decode

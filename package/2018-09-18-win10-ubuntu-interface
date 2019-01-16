@@ -1,0 +1,30 @@
+
+# 为 win10 内置 Ubuntu 安装图形界面
+
+[TOC]
+
+## 安装
+
+> 下载 [Xming XServer for Windows](https://sourceforge.net/projects/xming/) 并安装
+
+## 配置
+
+### Win10
+
+1. 运行其中的 Xlaunch
+
+1. 选择 Multiple Windows ，Display Number处填写为 1 ，然后“下一步”直到完成。
+
+### Ubuntu
+
+1. 在Ubuntu命令行输入
+
+    `echo "export DISPLAY=:1.0" >> ~/.bashrc`
+
+    到此，运行弹出窗口的程序可以正常使用了，如 python 中使用 matplotlib 模块作图可正常出图，同 windows 中的窗口相同。
+
+1. 继续输入
+    
+    `sudo apt-get install xfce4-terminal`
+
+1. 安装完成以后，你只需要运行xfce4-terminal即可启动该图形化客户端

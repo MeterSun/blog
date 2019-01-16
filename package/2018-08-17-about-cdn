@@ -1,0 +1,33 @@
+
+# 关于各种 js 包的 CDN
+
+[TOC]
+
+## 常见CDN
+
+####　[jsdelivr](https://cdn.jsdelivr.net/)
+
+####　[BootCDN](https://www.bootcdn.cn/)
+
+####　[新浪cdn](http://lib.sinaapp.com/)
+
+####　[微软cdn](http://www.asp.net/ajax/cdn)
+
+####　[百度cdn](http://cdn.code.baidu.com/)
+
+
+## 常用js包
+
+####　jQuery
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+```
+
+####　vue.js
+
+```html
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+```
+
