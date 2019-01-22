@@ -21,13 +21,21 @@ tags :
 
 - **Beautify** 　—　代码格式化工具
 
-- **background** 　—　编辑器背景
-
 - **Bracket Pair Colorizer** 　—　括号匹配插件
 
 - **SVN** 　—　svn 管理工具
 
-- **TODO Highlight** 　—　高亮
+- **TODO Highlight** 　—　高亮 todo
+
+- **IP Address** 　—　状态栏显示 IP 地址
+
+## 美化
+
+- **background** 　—　编辑器背景
+
+- **Linux Themes for VS Code** 　—　编辑器主题
+
+- **Material Icon Theme** 图标主题
 
 ## 前端
 
