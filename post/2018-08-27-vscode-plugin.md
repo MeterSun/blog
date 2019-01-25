@@ -29,19 +29,26 @@ tags :
 
 - **IP Address** 　—　状态栏显示 IP 地址
 
+- **file-size** 　—　状态栏显示文件大小
+
 ## 美化
 
 - **background** 　—　编辑器背景
 
 - **Linux Themes for VS Code** 　—　编辑器主题
 
-- **Material Icon Theme** 图标主题
+- **Material Icon Theme** 　—　图标主题
+
+- **Eva Theme** 　—　伊娃主题
 
 ## 前端
 
 - **Live Server** 　—　服务器插件 前端福利
 
 - **EasyMock - Mock Server** 　—　前台开发，模拟服务器
+
+- **REST Client** 　—　直接在编辑器发送 http 请求
+
 
 ## JavaScript
 
