@@ -53,3 +53,23 @@ which的作用是在PATH变量指定的路径中，搜索某个系统命令的�
 使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。
 
 which指令会在环境变量$PATH设置的目录里查找符合条件的文件，所以基本的功能是寻找可执行文件。
+
+## 解压缩
+
+### tar
+
+    tar [-options] [filename] [target]
+
+    # .tar
+    tar -cvf test.tar test/     # 打包
+    tar -xvf test.tar           # 解包
+    
+    # .tar.gz
+    tar -czvf test.tar.gz test/     # 压缩
+    tar -xzvf test.tar.gz           # 解压
+    
+### xz
+
+    xz -z xxx.tar    # 压缩得 xxx.tar.xz
+    xz -d xxx.tar.xz # 解压得 xxx.tar
+    # -k 保留源文件
