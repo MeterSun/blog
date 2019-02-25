@@ -77,12 +77,17 @@ which指令会在环境变量$PATH设置的目录里查找符合条件的文件�
 ## 设置环境变量
 
 位置
+
     # 所有用户
     nano /etc/profile
     # 当前用户
     nano ~/.bashrc
+
 添加
+
     export NODE_HOME=/opt/node
     export PATH=$PATH:NODE_HOME/bin
+
 立刻生效
+
     source /etc/profile
